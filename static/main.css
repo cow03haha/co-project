@@ -1,0 +1,34 @@
+html {
+  background-color: gray;
+  color: aqua;
+}
+
+#app {
+  display: flex;
+}
+
+div.pic {
+  flex: 1;
+  flex-grow: 1;
+  padding: 1%;
+}
+
+div.cmd {
+  flex: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+}
+
+div.cmd > div.chatbar {
+  flex: 1;
+  flex-grow: 10;
+  text-align: left;
+  font-size: large;
+  overflow: auto;
+}
+
+div.cmd > div.sender {
+  flex: 1;
+}

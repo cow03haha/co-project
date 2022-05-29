@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="static/vue.global.js"></script>
+    <script src="static/axios.min.js"></script>
+    <script src="static/socket.io.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="wrap">
+        <div class="header">
+            <div style="font-size: 35px; text-align: center;">集體智慧實驗</div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div style="font-size: 35px; text-align: center;">規則：</div>
+                <div style="font-size: 35px; text-align: center;">輸入 W 往上</div>
+                <div style="font-size: 35px; text-align: center;">輸入 A 往左</div>
+                <div style="font-size: 35px; text-align: center;">輸入 S 往下</div>
+                <div style="font-size: 35px; text-align: center;">輸入 D 往右</div>
+            </div>
+            <div class="center" style="text-align: center;">
+                <img id="streaming" src="video_feed">
+            </div>
+            <div class="right">
+                <div>
+                    <div style="font-size: 50px; text-align: center;">使用者留言</div>
+                    <textarea id="messageBox" style="height: 700px;width: 350px;resize: none;font-size: 18px;" v-model="cmd_display"></textarea>
+                    <div style="width: 300px;height: 100%;">
+                        <div id="messageBox"></div>
+                        <div class="border">
+                            <input id="Input" type="text" placeholder="請輸入控制" style="width: 70%;height: 50px;" v-model="cmd" @keyup.enter="send_cmd">
+                            <button id="doPost" style="width: 50px;height: 50px;" @click="send_cmd">發送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="footer"></div>
+    </div>
+    <script src="static/main.js"></script>
+</body>
+
+</html>
+
+
+<style type="text/css">
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    blockquote,
+    q {
+        quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    .wrap {
+        width: auto;
+        margin: 0 auto;
+    }
+
+    .header,
+    .footer {
+        border: 1px solid black;
+        height: 50px;
+        margin: 1px;
+        background: orange;
+        font-size: 32px;
+    }
+
+    .left,
+    .center,
+    .right {
+        border: 1px solid black;
+        height: 855px;
+        float: left;
+        margin: 5px;
+        /*padding: 50px;*/
+        background: pink;
+        font-size: 64px;
+    }
+
+    .left {
+        width: auto;
+    }
+
+    .center {
+        width: 60%;
+    }
+
+    .right {
+        width: auto;
+    }
+
+    .footer {
+        border: 1px solid black;
+        height: 50px;
+        margin: 1px;
+        background: orange;
+    }
+</style>

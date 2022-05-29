@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stream</title>
+        <link rel="stylesheet" href="static/main.css">
+        <script src="static/vue.global.js"></script>
+        <script src="static/axios.min.js"></script>
+        <script src="static/socket.io.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="app">
+            <div class="pic">
+                <img id="streaming" src="video_feed">
+            </div>
+
+            <div class="cmd">
+                <div class="chatbar">
+                    <div v-for="cmd in cmd_list" :key="cmd">
+                        {{cmd}}
+                    </div>
+                </div>
+
+                <div class="sender">
+                    <input type="text" v-model="cmd" @keyup.enter="send_cmd"><button @click="send_cmd">submit</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="static/main.js"></script>
+    </body>
+</html>
