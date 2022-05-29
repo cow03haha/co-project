@@ -31,8 +31,8 @@ class Camera(object):
     def frames():
         '''Create a new frame every 0.01 seconds.'''
         monitor = {
-            'top': 455,
-            'left': 537,
+            'top': 225,
+            'left': 538,
             'width': 828,
             'height': 489
         }
@@ -56,8 +56,8 @@ class Camera(object):
 
         for frame in frames_iter:
             frames_queue.append(frame)
-            if time.time() - cls.first_time >= 2:
-                Camera.frame = frames_queue.popleft()
+            # if time.time() - cls.first_time >= 2:
+            Camera.frame = frames_queue.popleft()
 
             if time.time() - cls.last_access >= 10:
                 frames_iter.close()

@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="static/vue.global.js"></script>
-    <script src="static/axios.min.js"></script>
-    <script src="static/socket.io.min.js"></script>
+    <script type="text/javascript" src="static/main.js"></script>
 </head>
 
 <body>
-    <div id="app" class="wrap">
+    <div class="wrap">
         <div class="header">
             <div style="font-size: 35px; text-align: center;">集體智慧實驗</div>
         </div>
@@ -23,17 +21,18 @@
                 <div style="font-size: 35px; text-align: center;">輸入 D 往右</div>
             </div>
             <div class="center" style="text-align: center;">
-                <img id="streaming" src="video_feed">
+                <h1 id="display">No key press</h1>
             </div>
             <div class="right">
                 <div>
                     <div style="font-size: 50px; text-align: center;">使用者留言</div>
-                    <textarea id="messageBox" style="height: 700px;width: 350px;resize: none;font-size: 18px;" v-model="cmd_display"></textarea>
+                    <textarea id="messageBox"
+                        style="height: 700px;width: 350px;resize: none;font-size: 18px;"></textarea>
                     <div style="width: 300px;height: 100%;">
                         <div id="messageBox"></div>
                         <div class="border">
-                            <input id="Input" type="text" placeholder="請輸入控制" style="width: 70%;height: 50px;" v-model="cmd" @keyup.enter="send_cmd">
-                            <button id="doPost" style="width: 50px;height: 50px;" @click="send_cmd">發送</button>
+                            <input id="Input" type="text" placeholder="請輸入控制" style="width: 70%;height: 50px;">
+                            <button id="doPost" style="width: 50px;height: 50px;">發送</button>
                         </div>
                     </div>
                 </div>
@@ -42,7 +41,6 @@
         <div class="clearfix"></div>
         <div class="footer"></div>
     </div>
-    <script src="static/main.js"></script>
 </body>
 
 </html>

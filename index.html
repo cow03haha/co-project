@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Stream</title>
-        <link rel="stylesheet" href="static/main.css">
-        <script src="static/vue.global.js"></script>
-        <script src="static/axios.min.js"></script>
-        <script src="static/socket.io.min.js"></script>
-    </head>
-    
-    <body>
-        <div id="app">
-            <div class="pic">
-                <img id="streaming" src="video_feed">
-            </div>
+<head>
+    <meta charset="utf-8">
+    <title>Stream</title>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/vue.global.js"></script>
+</head>
 
-            <div class="cmd">
-                <div class="chatbar">
-                    <div v-for="cmd in cmd_list" :key="cmd">
-                        {{cmd}}
-                    </div>
+<body>
+<div id="app">
+    <header class="wrapper">
+        <div class="nav">集體智慧實驗</div>
+    </header>
+    <div class="main-content wrapper">
+        <div class="main-rule">
+            規則：</br>
+            輸入 W 往上</br>
+            輸入 A 往左</br>
+            輸入 S 往下</br>
+            輸入 D 往右</br>
+        </div>
+        <div class="main-image">
+            <image src="video_feed"></image>
+        </div>
+        <div class="main-input">
+            <div class="input-content">
+                <div class="input-chat" ref="input_chat">
+                    <ul class="chat-content">
+                        <li v-for="i in cmd_list">
+                            {{i}}
+                        </li>
+                    </ul>
                 </div>
-
-                <div class="sender">
-                    <input type="text" v-model="cmd" @keyup.enter="send_cmd"><button @click="send_cmd">submit</button>
+                <div class="input-cmd">
+                    <input type="text" name="cmd" v-model="cmd" @keyup.enter="send_cmd">
+                    <button @click="send_cmd">送出</button>
                 </div>
             </div>
         </div>
-
-        <script src="static/main.js"></script>
-    </body>
+    </div>
+    <footer class="wrapper nav"></footer>
+</div>
+<script src="static/main.js"></script>
+</body>
 </html>
